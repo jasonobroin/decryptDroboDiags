@@ -1,0 +1,26 @@
+
+ESA version: 8.90.81921(3.5.11)(3.5.11) NODEBUG BUILD (GCC) (Marvell Sheeva 88SV584x, Board= Shockwave 1.0 ARMARCHV7 LE core)
+Build Date: May 26 2016,13:42:07
+Time now: Thu Jun 16 10:16:20 2016
+TimeZone: -7h0m
+System has been up 20 mins, 22 secs
+
+Backplane S/N : DRB125101A00192
+
+PMU Maximum temp = 42C, Average temp = 39C, Fan speed = 1, Sampling period = 60 sec
+Slot 0: 40 C, Slot 1: 42 C, Slot 2: 40 C, Slot 3: 36 C, 
+Slot 4: 38 C, Slot 5: 0 C, Slot 6: 0 C, Slot 7: 0 C, 
+  CPU Core Temp = 54 C, PMU Core Temp = 48C
+
+SystemStatusPool:
+	SysFaultLED is OFF
+
+SYSTEM LOGICAL STATUS
+
+batState = ON, mountState = RUNNING, tieringMode = LOGICAL, transactional tier size = 20 zones with 0 reserved for metadata
+
+Core (all) -------------------
+No DiagnosticContexts present
+------------------------------
+DiagnosticHandler function for SystemManager diags ran in 50 mSec
+**********************************************************************************************

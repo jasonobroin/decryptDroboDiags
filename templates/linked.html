@@ -1,0 +1,100 @@
+<html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		</head><body><content-type: "text="" plain"="">
+        <!-- The above 3 meta tags *must* come first in the head; any other head
+        content must come *after* these tags -->
+        <title>Drobo DecryptDiags {printf "%s" .Filename}}</title>
+        <!-- Bootstrap -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/css/custom.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript
+        plugins) -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual
+        files as needed -->
+        <script src="/assets/js/bootstrap.min.js"></script>         
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media
+        queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file://
+        -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    
+		<!-- Highlight.js support -->
+		<link rel="stylesheet" href="/assets/styles/arata.css" id="userstyle">
+	    <script src="/assets/js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	
+		<!-- Custom Javascript functions -->
+	
+		<script src="/assets/js/markup.js"></script>
+	
+	    <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;"><div class="container-fluid"><div class="navbar-header navbar-text"></div><h4><a class="navbar-left navbar-link" href="/zip/{{.ZipFilepath}}">{{printf "%s" .ZipFilename}}</a> :: {{printf "%s" .Filename}} <a class="navbar-link navbar-right" href="/">Back to Diags List</a></h4></div>
+	
+	    <div class="container-fluid navbar-header">
+		    <a data-target=".linkedindex" class="btn btn-default" data-toggle="collapse" data-parent="#hindex" id="toggle-btn">Toggle Indexing</a>
+		    <a class="btn btn-default" data-toggle="collapse" data-parent="#hindex" id="hide-btn">Close all diag sections</a>
+		    <a class="btn btn-default" data-toggle="collapse" data-parent="#hindex" id="show-btn">Open all diag sections</a>
+			<a class="btn btn-default" id="reset-style">Reset Display style</a>
+		    <div class="btn-group"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select style
+			    <span class="caret"></span></button>
+			  <div class="dropdown-menu">
+			   {{range .StyleList}}
+			   <a class="dropdown-item switch-style" href="#">{{.}}</a><br>
+			   {{end}}
+			  </div>
+	     	</div>
+	    </div>
+		</nav>
+
+        <!-- Display the links -->
+		<!-- Need reference to the top level structure -->
+		{{$top := .}}
+				
+		<class class="collapse in linkedindex" id="hindex">		   
+		<p div class="container-fluid">
+		<div class="row">
+		<div class="indent-0">
+		<a href="#start">START OF DIAGS</a><br>
+		</div>
+		</div>
+		{{range $i, $e := .FoundKeys}}
+		<a href="#{{.Anchor}}">
+		<div class="row">
+		<div class="indent-{{.IndentLevel}}">
+		{{.AnchorText | html}}
+		</div>
+		</div>
+		</a>
+		{{end}}
+		<div class="row">
+		<div class="indent-0">
+		<a href="#end">END OF DIAGS</a><br>
+		</div>
+		</div>
+		</div>
+		</class>
+<br>
+		<!-- Display the body; need to display the anchors, and all the text inbetween, including text before the first anchor -->
+<class class="collapse in linkedindex" id="hindex">		   
+<nav class="navbar navbar-light linkedindex" style="background-color: #e3f2fd;"><div class="container-fluid"><div class="navbar-header"></div><a class="display-toggle navbar-text navbar-left" name="start" data-section=".collapse0"><span class="glyphicon glyphicon-minus-sign open-btn"></span> START OF DIAGS</a><a class="navbar-text navbar-link navbar-right" href="#"> Back to top </a></div></nav>
+</class>
+<div class="collapse in collapse0 diag-section"><id="collapse0"><pre class="pre-disp"><code>
+{{range $i, $e := .DiagLines}}{{$anchorNeeded := index $top.AnchorNeeded $i}}{{if $anchorNeeded}}</code></pre></div><class class="collapse in linkedindex" id="hindex"><nav class="navbar navbar-light" style="background-color: #e3f2fd;"><div class="container-fluid"><div class="navbar-header"></div><a class="display-toggle navbar-text navbar-left" name="{{$i}}" data-section=".collapse{{$i}}"><span class="glyphicon glyphicon-minus-sign open-btn"></span> {{$e | html}}</a><a class="navbar-text navbar-link navbar-right" href="#"> Back to top </a><a class="navbar-text navbar-link navbar-right" href="#{{$anchorNeeded.Next}}"><span class="glyphicon glyphicon-triangle-bottom"></span></a><a class="navbar-text navbar-link navbar-right" href="#{{$anchorNeeded.Previous}}"><span class="glyphicon glyphicon-triangle-top"></span></a></div></nav></class><div class="collapse in collapse{{$i}} diag-section"><id="collapse{{$i}}"><pre class="pre-disp"><code class="{{(index $top.SearchKeys $anchorNeeded.SearchElement).Highlighter}}">
+<class class="collapse in linkedindexdisp" id="hindex" style="display: none;">{{$e | html}}<br></class>{{else}}{{$e | html}}
+{{end}}{{end}}
+</code></pre></div>
+<class class="collapse in linkedindex" id="hindex">		   
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;"><div class="container-fluid"><div class="navbar-header"></div><a class="navbar-text navbar-left" name="end">END OF DIAGS</a><a class="navbar-text navbar-link navbar-right" href="#"> Back to top </a></div></nav>
+</class>
+
+<footer class="section section-primary"> <div class="container"> <div class="row"> <div class="col-sm-6"></div><div class="col-sm-6"> <p class="text-info text-right"> <br><br></p><div class="row"> <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left"> <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> </div></div><div class="row"> <div class="col-md-12 hidden-xs text-right"> <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a> <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a> </div></div></div></div></div></footer>
+    
+</content-type:>
+
+
+</body></html>
