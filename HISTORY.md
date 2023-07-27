@@ -4,7 +4,7 @@ I wrote an improved Drobo diag decrypting utility circa 2016 in the last few mon
 
 There were a number of issues with the tooling prior to this
 
-- A zipeed log file was created, but it only had some of the useful files
+- A ziped log file was created, but it only had some of the useful files
 - A number of files had to collected manually by the user, and support often had to have multiple conversations with customers to get everything needed, much to everyone's frustration
 - The decrypt process was poor, and partially broken
 - I don't think the zip or log files were timestamped 
@@ -18,7 +18,7 @@ In addition, I was looking for a meaningful project to learn golang (and also a 
 # Benefits
 
 - All useful log files were collected and archived in one shot with tracability by Serial Number & collection timestamp
-- A bug which occasionanlly failed to decode part of the logs was found and fixed
+- A bug which occasionanly failed to decode part of the logs was found and fixed
 - Many of the internal logs were well structured and it was possible to identify the different subsections, separate them out visually, allow automated linking to the different subsections, and allow open/colapse of different areas, and navigation within logs
 - Decoders for various binary files were implemented allowing us to export internal data structures (such as the zone table) which historically had not been accessible without the return of a diskpack
 - The firmware log generation process was overhauled to be more robust, load balance with other system activities and be able to generate previously unexportable diagnostic information
