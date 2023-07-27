@@ -2,6 +2,14 @@ DecryptDiags 6.3.2
 
 Redeveloped Drobo diag decrypt utility written in go
 
+# BINARIES
+
+Pre-built binaries are checked into the repro
+
+- Mac version: decryptDiags
+- Windows version; decryptDiags.exe
+- Linux version: decryptDiags-lx
+
 # SIMPLEST USAGE
 
 - decryptDiags -w -wp <port=8000>
