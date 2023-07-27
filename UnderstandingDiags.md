@@ -8,7 +8,7 @@ The filename contains the Drobo serial number and the time and date stamp of whe
 
 # General notes
 
-Drobo systems use between 1 and 8 CPU cores, split between VxWorks and Linux operation systems.
+Drobo systems use between 1 and 8 CPU cores, split between VxWorks and Linux operating systems.
 
 The core Beyond RAID code runs as a executable process on VxWorks; USB and Thunderbolt direct attached devices, such as Drobo 5D ONLY run VxWorks.
 
@@ -67,7 +67,11 @@ It can be generated even if the diskpack can't be loaded, although it may not be
 
 ## Crashlogs
 
-<Add info>
+These logs capture the live log and BeyondRAID diags when a crash happens; in the case of a BeyondRAID crash, internal diags are taken, but all threads are paused and locks are bypassed allowing the current state of the system to be captured. Its possible some internal data structures are in a transitional state, although this is rare.
+
+In the case of external power loss, the current live log is written to flash (on the subsequent boot IIRC) as memory is battery protected, providing information on the system state when external power was lost
+
+*Add more info*
 
 ## ZoneTable.bin
 
@@ -75,7 +79,7 @@ This file is generated at diag capture time and reports the organization of the 
 
 ## PerfTable.bin
 
-THis file is generated at diag capture time and reports various internal performance metrics
+This file is generated at diag capture time and reports various internal performance metrics
 
 ## Other?
 
