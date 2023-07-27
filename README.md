@@ -1,43 +1,38 @@
-DecryptDiags 6.x
+DecryptDiags 6.3.2
 
 Redeveloped Drobo diag decrypt utility written in go
 
-BUILD INSTRUCTIONS
-------------------
+# SIMPLEST USAGE
 
-* go compiler needs to be downloaded from https://golang.org/dl/
-* In vendor directory, do
-  go get "github.com/jasonob/go-jira"
-* Code was developed with go version 1.6
-* 'go build' will build the binary.
-* Both Mac and Windows versions built and tested. No known OS incompatibilities
-* buildall.sh will build Mac (decryptDiags), Windows 32 bit (decryptDiags.exe) and Linux x86 (decryptDiags-lx)
+- decryptDiags -w -wp <port=8000>
+- Browse to http://localhost:8000
+- Add diags
+- Browse diags
 
-DEPENDENCIES
-------------
+# BUILD INSTRUCTIONS
 
-* In vendor directory, do
-  go get "github.com/jasonob/go-jira"
-  go get github.com/google/go-querystring/query and then move from src/gitbub/google to vendor/google
-* Also need to get other package from github.com
+- go compiler needs to be downloaded from https://golang.org/dl/
+- Code was originally developed with go version 1.6; most recently built with 1.20
+- 'go build' will build the binary.
+- Both Mac and Windows versions built and tested. No known OS incompatibilities
+- buildall.sh will build Mac (decryptDiags), Windows 32 bit (decryptDiags.exe) and Linux x86 (decryptDiags-lx)
 
-WEB INTERFACE SUPPORT/DEPENDENCIES
-----------------------------------
+# WEB INTERFACE SUPPORT/DEPENDENCIES
 
-* All dependencies currently kept locally
-* bootstrap: v3.3.6
-* jquery: v1.11.3
-* highlight.js : v9.5.0, build with node.js v4.4.7 and npm 2.15.8
+- All dependencies currently kept locally
+- bootstrap: v3.3.6
+- jquery: v1.11.3
+- highlight.js : v9.5.0, build with node.js v4.4.7 and npm 2.15.8
 
-* Changes to highlight.js needs built with node.js
+- Changes to highlight.js needs built with node.js
 
-Added files
------------
+## Added files
+
   extra/highlight.js/src/languages/drobo.js
   extra/highlight.js/test/detect/drobo/default.txt
 
-Build steps
------------
+# Build steps
+
   git clone https://github.com/isagalaev/highlight.js
   cd highlight.js
   cp -r <decryptDiagsLocation>/extra/highlight.js/ .
@@ -45,51 +40,41 @@ Build steps
   node tools/build.js xml json drobo
   build/highlight.pack.js has required javascript code - copy to assets/js/
 
-DEVELOPMENT
------------
+# DEVELOPMENT
 
-* Use 'go fmt' to keep code in correct go code format
+- Use 'go fmt' to keep code in correct go code format
 
-INSTRUCTIONS
-------------
+# INSTRUCTIONS
 
-* Will decrypt individual files or zip files
-* decryptDiags [-f <filename> | -z <zip filename> -d <dataFilename>] <filename>
-* If no command line option chosen, decryptDiags will look at the supplied filename suffix to work out what to do
-* Generates a <filename>_d or <zip_filename>._d.zip file containing decrypted diags 
+- Will decrypt individual files or zip files
+- decryptDiags [-f <filename> | -z <zip filename> -d <dataFilename>] <filename>
+- If no command line option chosen, decryptDiags will look at the supplied filename suffix to work out what to do
+- Generates a <filename>_d or <zip_filename>._d.zip file containing decrypted diags 
 
-DEPLOYMENT
-----------
+# DEPLOYMENT
 
-* Create a shortcut on Desktop to simplify decrypt process
-* Add -w to the shortcut will automatically open web browser with the list of the contents of the decrypted diags
+- Create a shortcut on Desktop to simplify decrypt process
+- Add -w to the shortcut will automatically open web browser with the list of the contents of the decrypted diags
 
-DOCKER DEPLOYMENT
------------------
+# DOCKER DEPLOYMENT
 
 docker run -d --name dd -P decryptdiags
 
-WEB SERVER
-----------
+# WEB SERVER
 
-* decryptDiags -w -wp <port=8000>
-* Browse to http://localhost:8000
-* Need to copy templates and assets directory to same location as decryptDiags in order to provide access to HTML pages
-* Upload either encrypted or previously decrypted zip files. Both are handled
-* Web server allows JIRA login, and post of diags (with comment) to a JIRA bug
-* Web server allows viewing of the decrypted diags files as plain textfile, or indexed based on sub-sections
+- decryptDiags -w -wp <port=8000>
+- Browse to http://localhost:8000
+- Need to copy templates and assets directory to same location as decryptDiags in order to provide access to HTML pages
+- Upload either encrypted or previously decrypted zip files. Both are handled
+- Web server allows JIRA login, and post of diags (with comment) to a JIRA bug [NO LONGER WORKS AS API CHANGED]
+- Web server allows viewing of the decrypted diags files as plain textfile, or indexed based on sub-sections
 
-LIMITATIONS
------------
+# LIMITATIONS
 
-* Only supports v2 diags (i.e. 5N, 5D(t), 5C, Gen3, B810n, B810i, B1200i)
-
-KNOWN PROBLEMS
---------------
+- Only supports v2 diags (i.e. 5N, 5D(t), 5C, Gen3, B810n, B810i, B1200i)
 
 
-VERSION INFO
-------------
+# VERSION INFO
 
 6.3.2
 
