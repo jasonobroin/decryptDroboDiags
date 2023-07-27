@@ -2,7 +2,7 @@ DecryptDiags 6.3.2
 
 Redeveloped Drobo diag decrypt utility written in go
 
-# BINARIES
+# Binaries
 
 Pre-built binaries are checked into the repro
 
@@ -10,14 +10,14 @@ Pre-built binaries are checked into the repro
 - Windows version; decryptDiags.exe
 - Linux version: decryptDiags-lx
 
-# SIMPLEST USAGE
+# Simplest Usage
 
 - decryptDiags -w -wp <port=8000>
 - Browse to http://localhost:8000
 - Add diags
 - Browse diags
 
-# BUILD INSTRUCTIONS
+# Build Instructions
 
 - go compiler needs to be downloaded from https://golang.org/dl/
 - Code was originally developed with go version 1.6; most recently built with 1.20
@@ -25,7 +25,7 @@ Pre-built binaries are checked into the repro
 - Both Mac and Windows versions built and tested. No known OS incompatibilities
 - buildall.sh will build Mac (decryptDiags), Windows 32 bit (decryptDiags.exe) and Linux x86 (decryptDiags-lx)
 
-# WEB INTERFACE SUPPORT/DEPENDENCIES
+# Web Interface Support/Dependencies
 
 - All dependencies currently kept locally
 - bootstrap: v3.3.6
@@ -48,27 +48,27 @@ Pre-built binaries are checked into the repro
   node tools/build.js xml json drobo
   build/highlight.pack.js has required javascript code - copy to assets/js/
 
-# DEVELOPMENT
+# Development
 
 - Use 'go fmt' to keep code in correct go code format
 
-# INSTRUCTIONS
+# Instructions
 
 - Will decrypt individual files or zip files
 - decryptDiags [-f <filename> | -z <zip filename> -d <dataFilename>] <filename>
 - If no command line option chosen, decryptDiags will look at the supplied filename suffix to work out what to do
 - Generates a <filename>_d or <zip_filename>._d.zip file containing decrypted diags 
 
-# DEPLOYMENT
+# Deployment
 
 - Create a shortcut on Desktop to simplify decrypt process
 - Add -w to the shortcut will automatically open web browser with the list of the contents of the decrypted diags
 
-# DOCKER DEPLOYMENT
+# Docker Deployment
 
 docker run -d --name dd -P decryptdiags
 
-# WEB SERVER
+# Web Server
 
 - decryptDiags -w -wp <port=8000>
 - Browse to http://localhost:8000
@@ -77,12 +77,12 @@ docker run -d --name dd -P decryptdiags
 - Web server allows JIRA login, and post of diags (with comment) to a JIRA bug [NO LONGER WORKS AS API CHANGED]
 - Web server allows viewing of the decrypted diags files as plain textfile, or indexed based on sub-sections
 
-# LIMITATIONS
+# Limitations
 
 - Only supports v2 diags (i.e. 5N, 5D(t), 5C, Gen3, B810n, B810i, B1200i)
 
 
-# VERSION INFO
+# Version Info
 
 6.3.2
 
