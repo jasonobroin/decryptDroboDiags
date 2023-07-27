@@ -36,17 +36,17 @@ Pre-built binaries are checked into the repro
 
 ## Added files
 
-  extra/highlight.js/src/languages/drobo.js
-  extra/highlight.js/test/detect/drobo/default.txt
+- extra/highlight.js/src/languages/drobo.js
+- extra/highlight.js/test/detect/drobo/default.txt
 
 # Build steps
 
-  git clone https://github.com/isagalaev/highlight.js
-  cd highlight.js
-  cp -r <decryptDiagsLocation>/extra/highlight.js/ .
-  npm install
-  node tools/build.js xml json drobo
-  build/highlight.pack.js has required javascript code - copy to assets/js/
+- git clone https://github.com/isagalaev/highlight.js
+- cd highlight.js
+- cp -r <decryptDiagsLocation>/extra/highlight.js/ .
+- npm install
+- node tools/build.js xml json drobo
+- build/highlight.pack.js has required javascript code - copy to assets/js/
 
 # Development
 
@@ -66,7 +66,7 @@ Pre-built binaries are checked into the repro
 
 # Docker Deployment
 
-docker run -d --name dd -P decryptdiags
+- docker run -d --name dd -P decryptdiags
 
 # Web Server
 
