@@ -55,7 +55,7 @@ LockedDiags also reports some information from some kernel level modules
 
 An in memory log of output from the VxWorks core (i.e. kernel and BeyondRAID stack output), allowing analysis of what has happened over time
 
-## EventLog.txt -
+## EventLog.txt
 
 A list of major events in the life of the DiskPack; this version is kept on-disk, and can only be generated if the disk pack is loaded. Note this moves with the diskpack
 
