@@ -4,9 +4,9 @@ A Drobo Diags zip file contains a number of files.
 
 A Drobo diags file is a zip file, holding a number of text and binary diag files.
 
-The filename contains the Drobo serial number and the time and date stamp of when the diags were collected: <SerialNumber_<Date>_<Time>.zip
+The filename contains the Drobo serial number and the time and date stamp of when the diags were collected: \<SerialNumber\>\_\<Date\>\_\<Time\>.zip
 
-Note it gets renamed to <SerialNumber_<Date>_<Time>_d.zip when added to the DroboDiags archive in the uploads folder
+Note it gets renamed to \<SerialNumber\>\_\<Date\>\_\<Time\>\_d.zip when added to the DroboDiags archive in the uploads folder
 
 # General notes
 
@@ -107,17 +107,17 @@ Log file from the main process that runs the NAS engine on Linux and interfaces 
 
 The file collects a large number of Linux system files and run time information
 
-## DAPPS_<app>_<ver>.txt
+## DAPPS\_\<app\>\_\<ver\>.txt
 
 Logs from specific DroboApp
 
 # Info on specific Dashboard log files 
 
-## TMDiags*.log
+## TMDiags\*.log
 
 Logs from the host based TransportManager, which talks to the Drobo. A new log is started each time the daemon runs
 
-## DDDiags*.log
+## DDDiags\*.log
 
 Logs from the Dashboard. A new log is started each time the Dashboard starts
 
@@ -129,7 +129,7 @@ Information about Windows if Dashboard runs on that Operating System
 
 Information about MacOS if Dashboard runs on that Operating System
 
-## Drobo Dashboard_<timestamp>_iMac.crash
+## Drobo Dashboard\_\<timestamp\>\_iMac.crash
 
 Crash logs from Drobo Dashboard on MacOS
 
