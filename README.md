@@ -1,4 +1,4 @@
-DecryptDiags 6.3.2
+# DecryptDiags 6.3.2
 
 Redeveloped Drobo diag decrypt utility written in go
 
@@ -16,6 +16,10 @@ Pre-built binaries are checked into the repro
 - Browse to http://localhost:8000
 - Add diags
 - Browse diags
+
+# Understanding logs
+
+- Review [UnderstandingDiags](UnderstandingDiags.md) for information on the contents of a decode DroboDiags bundle
 
 # Build Instructions
 
@@ -81,6 +85,9 @@ Pre-built binaries are checked into the repro
 
 - Only supports v2 diags (i.e. 5N, 5D(t), 5C, Gen3, B810n, B810i, B1200i)
 
+# History
+
+- See [History](HISTORY.md)
 
 # Version Info
 
